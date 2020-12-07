@@ -1,5 +1,5 @@
 class Space {
-    constructor() {
+    constructor(x, y) {
         this.x = x;
         this.y = y;
         this.id = `space-${x}-${y}`;
@@ -7,6 +7,18 @@ class Space {
         this.diameter = 76;
         this.radius = this.diameter/2;
     }
+
+    /**
+	 * Checks if space has an associated token to find its owner
+	 * @return  {(null|Object)} Returns null or the owner object of the space's associated token.
+	 */
+	get owner() {
+        if (this.token === null) {
+            return null;
+        } else {
+            return this.token.owner;
+        }
+	}
 
     /**
      * Draws SVG space.
@@ -24,4 +36,12 @@ class Space {
 
         document.getElementById("mask").appendChild(svgSpace); 
     }
+
+    /**
+     * Updates space to reflect a token has been dropped into it.
+     * @param {Object} token - The dropped token
+     */
+	mark(token) {
+		this.token = token;
+	}
 }
