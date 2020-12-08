@@ -24,7 +24,7 @@ class Space {
      * Draws SVG space.
      */
 
-    drawSVGSpaces() {
+    drawSVGSpace() {
         const svgSpace = document.createElementNS("http://www.w3.org/2000/svg", "circle");
 
         svgSpace.setAttributeNS(null, "id", this.id);
