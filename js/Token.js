@@ -11,7 +11,7 @@ class Token {
      * @return {element}   Html element associated with the token object.
      */
 
-     get htmnlToken() {
+     get htmlToken() {
          return document.getElementById(this.id);
      }
 
@@ -43,7 +43,7 @@ class Token {
 
     moveLeft() {
         if (this.columnLocation > 0) {
-            this.htmnlToken.style.left = this.offsetLeft - 76;
+            this.htmlToken.style.left = this.offsetLeft - 76;
             this.columnLocation -= 1;
         }
     }
@@ -55,7 +55,7 @@ class Token {
 
     moveRight(columns) {
         if (this.columnLocation < columns - 1) {
-            this.htmnlToken.style.left = this.offsetLeft + 76;
+            this.htmlToken.style.left = this.offsetLeft + 76;
             this.columnLocation += 1;
         }
     }
@@ -68,7 +68,7 @@ class Token {
 
     drop(target, reset) {
         this.dropped = true;
-        
+
         $(this.htmlToken).animate({
             top: (target.y * target.diameter)
         }, 750, 'easeOutBounce', reset);
